@@ -161,7 +161,7 @@
             await new Promise((resolve) => setTimeout(resolve, pollInterval));
 
             try {
-                const taskResult = await getInfringementDetectionTaskResult(taskUid);
+                const taskResult = await getInfringementDetectionTaskResult(patent.publicationNumber, taskUid, useCache);
                 if (taskResult.success) {
                     detections = [...taskResult.data.detections, ...(detections || [])];
                     taskError = null;
